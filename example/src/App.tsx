@@ -74,6 +74,11 @@ const App = () => {
         onViewListChange={setIsChecked}
         isChecked={isChecked}
       />
+      <div style={{ display: "flex", alignItems: "center", padding: "10px", backgroundColor: "#f0f0f0" }}>
+        <div>▼</div>
+        <div className="rowNumber">I</div>
+        <div>第一期设计（A区 + B区）</div>
+      </div>
       <Gantt
         tasks={tasks}
         locale="zh"
