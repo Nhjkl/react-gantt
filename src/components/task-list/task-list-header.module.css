@@ -20,4 +20,7 @@
   display: table-cell;
   vertical-align: -webkit-baseline-middle;
   vertical-align: middle;
+  border-right: 1px solid #ebeff2;
+  padding-left: 10px;
+  box-sizing: border-box;
 }

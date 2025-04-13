@@ -19,6 +19,9 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  border-bottom: 1px solid #ebeff2;
+  border-right: 1px solid #ebeff2;
+  box-sizing: border-box;
 }
 .taskListNameWrapper {
   display: flex;
