@@ -31,6 +31,7 @@ export const TaskListTableDefault: React.FC<{
   selectedTaskId: string;
   setSelectedTask: (taskId: string) => void;
   onExpanderClick: (task: Task) => void;
+  showTaskListColumn: string[];
 }> = ({
   rowHeight,
   rowWidth,
@@ -39,11 +40,18 @@ export const TaskListTableDefault: React.FC<{
   fontSize,
   locale,
   onExpanderClick,
+  showTaskListColumn,
 }) => {
   const toLocaleDateString = useMemo(
     () => toLocaleDateStringFactory(locale),
     [locale]
   );
+
+  function RowNumber(expanderSymbol: string) {
+    return (
+      <div className={styles.rowNumber}>{expanderSymbol ? "II" : "III"}</div>
+    );
+  }
 
   return (
     <div
@@ -76,37 +84,44 @@ export const TaskListTableDefault: React.FC<{
               title={t.name}
             >
               <div className={styles.taskListNameWrapper}>
-                <div
-                  className={
-                    expanderSymbol
-                      ? styles.taskListExpander
-                      : styles.taskListEmptyExpander
-                  }
-                  onClick={() => onExpanderClick(t)}
-                >
-                  {expanderSymbol}
-                </div>
-                <div>{t.name}</div>
+                {showTaskListColumn.includes("name") && (
+                  <div
+                    className={
+                      expanderSymbol
+                        ? styles.taskListExpander
+                        : styles.taskListEmptyExpander
+                    }
+                    onClick={() => onExpanderClick(t)}
+                  >
+                    {expanderSymbol}
+                  </div>
+                )}
+                {RowNumber(expanderSymbol)}
+                {showTaskListColumn.includes("name") && <div>{t.name}</div>}
               </div>
             </div>
-            <div
-              className={styles.taskListCell}
-              style={{
-                minWidth: rowWidth,
-                maxWidth: rowWidth,
-              }}
-            >
-              &nbsp;{toLocaleDateString(t.start, dateTimeOptions)}
-            </div>
-            <div
-              className={styles.taskListCell}
-              style={{
-                minWidth: rowWidth,
-                maxWidth: rowWidth,
-              }}
-            >
-              &nbsp;{toLocaleDateString(t.end, dateTimeOptions)}
-            </div>
+            {showTaskListColumn.includes("start") && (
+              <div
+                className={styles.taskListCell}
+                style={{
+                  minWidth: rowWidth,
+                  maxWidth: rowWidth,
+                }}
+              >
+                &nbsp;{toLocaleDateString(t.start, dateTimeOptions)}
+              </div>
+            )}
+            {showTaskListColumn.includes("end") && (
+              <div
+                className={styles.taskListCell}
+                style={{
+                  minWidth: rowWidth,
+                  maxWidth: rowWidth,
+                }}
+              >
+                &nbsp;{toLocaleDateString(t.end, dateTimeOptions)}
+              </div>
+            )}
           </div>
         );
       })}

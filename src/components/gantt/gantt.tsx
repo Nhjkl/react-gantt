@@ -47,6 +47,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
   milestoneBackgroundColor = "#f1c453",
   milestoneBackgroundSelectedColor = "#f29e4c",
   rtl = false,
+  showTaskListColumn = ["name", "start", "end"],
   handleWidth = 8,
   timeStep = 300000,
   arrowColor = "grey",
@@ -448,6 +449,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
     onExpanderClick: handleExpanderClick,
     TaskListHeader,
     TaskListTable,
+    showTaskListColumn,
   };
   return (
     <div>

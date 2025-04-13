@@ -74,25 +74,11 @@ const App = () => {
         onViewListChange={setIsChecked}
         isChecked={isChecked}
       />
-      {/* <h3>Gantt With Unlimited Height</h3> */}
-      {/* <Gantt */}
-      {/*   tasks={tasks} */}
-      {/*   viewMode={view} */}
-      {/*   onDateChange={handleTaskChange} */}
-      {/*   onDelete={handleTaskDelete} */}
-      {/*   onProgressChange={handleProgressChange} */}
-      {/*   onDoubleClick={handleDblClick} */}
-      {/*   onClick={handleClick} */}
-      {/*   onSelect={handleSelect} */}
-      {/*   onExpanderClick={handleExpanderClick} */}
-      {/*   listCellWidth={isChecked ? "155px" : ""} */}
-      {/*   columnWidth={columnWidth} */}
-      {/* /> */}
-      <h3>Gantt With Limited Height</h3>
       <Gantt
         tasks={tasks}
         locale="zh"
         viewMode={view}
+        showTaskListColumn={["name"]}
         onDateChange={handleTaskChange}
         onDelete={handleTaskDelete}
         onProgressChange={handleProgressChange}
@@ -100,9 +86,22 @@ const App = () => {
         onClick={handleClick}
         onSelect={handleSelect}
         onExpanderClick={handleExpanderClick}
-        listCellWidth={isChecked ? "155px" : ""}
-        ganttHeight={300}
+        listCellWidth={isChecked ? "300px" : ""}
         columnWidth={columnWidth}
+        barFill={60}
+        barCornerRadius={4}
+        barProgressColor="rgba(238, 100, 8, 1)"
+        barProgressSelectedColor="rgba(238, 100, 8, 0.8)"
+        barBackgroundColor="rgba(238, 100, 8, 0.2)"
+        barBackgroundSelectedColor="rgba(238, 100, 8, 0.3)"
+        projectProgressColor="rgba(238, 100, 8, 1)"
+        projectProgressSelectedColor="rgba(238, 100, 8, 0.8)"
+        projectBackgroundColor="rgba(238, 100, 8, 0.2)"
+        projectBackgroundSelectedColor="rgba(238, 100, 8, 0.3)"
+        milestoneBackgroundColor="#65686B"
+        milestoneBackgroundSelectedColor="#65686B"
+        arrowColor="#65686B"
+        todayColor="rgba(238, 100, 8, 0.1)"
       />
     </div>
   );

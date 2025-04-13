@@ -39,3 +39,14 @@
   padding-left: 1rem;
   user-select: none;
 }
+
+.rowNumber {
+  background: rgb(238, 100, 8);
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 99px;
+  color: #fff;
+  margin-right: 10px;
+}
